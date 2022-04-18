@@ -25,7 +25,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="speed"
+        android:hint="speed (mph)"
         android:inputType="number" />
 
     <EditText
@@ -35,7 +35,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="angle"
+        android:hint="angle (degrees)"
         android:inputType="number" />
 
     <ToggleButton
