@@ -7,6 +7,7 @@ import java.util.Queue;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,7 @@ import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button bRotation, bThrow;
+    Button bRotation, bThrow, bShowQueue;
     EditText etSpeed, etAngle;
 
     boolean isValidFields = false;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         ToggleButton bRotation = (ToggleButton) findViewById(R.id.rotationButton);
         bThrow = findViewById(R.id.throwFrisbee);
+        bShowQueue = findViewById(R.id.qButton);
 
         etSpeed = findViewById(R.id.speed);
         etAngle = findViewById(R.id.angle);
@@ -53,13 +55,31 @@ public class MainActivity extends AppCompatActivity {
                         rotationInt = 1;
                     }
                     Data inData = new Data(speedInt, angleInt, rotationInt);
-                    inData.str();
+                    inData.str("Input Data");
                     qe.add(inData);
                     etSpeed.setText("");
                     etAngle.setText("");
                 }
             }
         });
+        bShowQueue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = getApplicationContext();
+                CharSequence text = "Displaying data in Queue";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                showQ(qe);
+            }
+        });
+    }
+
+    private void showQ(Queue<Data> qe){
+        Log.i("Data from Queue", " ");
+        for (Data item: qe){
+            item.str("item");
+        }
     }
 
     private boolean checkFields() {
@@ -69,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
         try {
             speedInt = Integer.parseInt(speedStr);
             if (speedInt > 50){
-                etSpeed.setError("Speed is too high");
+                etSpeed.setError("Speed is too high must be <= 50");
                 isValid = false;
             }
             if (speedInt < 15) {
-                etSpeed.setError("Speed is too low");
+                etSpeed.setError("Speed is too low must be >= 15");
                 isValid = false;
             }
         }
@@ -86,11 +106,11 @@ public class MainActivity extends AppCompatActivity {
         try {
             angleInt = Integer.parseInt(angleStr);
             if (angleInt > 90){
-                etAngle.setError("Angle is too high");
+                etAngle.setError("Angle is too high must be <= 90");
                 isValid = false;
             }
             if (angleInt < 0) {
-                etAngle.setError("Angle is too low");
+                etAngle.setError("Angle is too low must be >= 0");
                 isValid = false;
             }
         }

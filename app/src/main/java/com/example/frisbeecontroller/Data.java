@@ -16,9 +16,9 @@ public class Data {
         rotation = inRotation;
     }
 
-    public void str(){
+    public void str(String tag){
         String data = new String("Speed: " + speed + " Angle: " + angle + " Rotation: " + rotation);
-        Log.i("Input Data: ", data);
+        Log.i(tag, data);
         //System.out.print("Speed: " + speed + " Angle: " + angle + " Rotation: " + rotation);
     }
 }

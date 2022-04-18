@@ -15,9 +15,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="16dp"
-        android:textSize="32dp"
+        android:textSize="40dp"
+        android:textColor="@color/black"
         android:gravity="center"
         android:text="BOFA" />
+
     <EditText
         android:id="@+id/speed"
         android:layout_width="match_parent"
@@ -58,6 +60,18 @@
         android:layout_marginStart="16dp"
         android:layout_centerInParent="true"
         android:text="throwFrisbee"
+        android:textColor="@android:color/white"
+        tools:ignore="ButtonStyle" />
+
+    <Button
+        android:id="@+id/qButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_centerInParent="true"
+        android:text="Show Queue"
         android:textColor="@android:color/white"
         tools:ignore="ButtonStyle" />
 
